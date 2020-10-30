@@ -56,6 +56,9 @@
     "react-is": "^17.0.1",
     "semantic-release": "^17.2.2"
   },
+  "branches": [
+    {"name": "main", "prerelease": true}
+  ],
   "plugins": [
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
