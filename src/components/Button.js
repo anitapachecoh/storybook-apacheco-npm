@@ -1,17 +1,50 @@
-import styled from "styled-components";
 
-export interface ButtonProps {
-  primary?: boolean
-}
+import React from 'react';
+import PropTypes from 'prop-types';
 
-export const Button = styled.button<ButtonProps>`
-  /* Adapt the colors based on primary prop */
-  background: ${props => props.primary ? "palevioletred" : "green"};
-  color: ${props => props.primary ? "white" : "palevioletred"};
+/**
+ * Primary UI component for user interaction
+ */
+export const Button = ({ primary, backgroundColor, size, label, ...props }) => {
+  const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
+  return (
+    <button
+      type="button"
+      className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
+      style={backgroundColor && { backgroundColor }}
+      {...props}
+    >
+      Hola!
+    </button>
+  );
+};
 
-  font-size: 1em;
-  margin: 1em;
-  padding: 0.25em 1em;
-  border: 2px solid palevioletred;
-  border-radius: 3px;
-`;
+Button.propTypes = {
+  /**
+   * Is this the principal call to action on the page?
+   */
+  primary: PropTypes.bool,
+  /**
+   * What background color to use
+   */
+  backgroundColor: PropTypes.string,
+  /**
+   * How large should the button be?
+   */
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  /**
+   * Button contents
+   */
+  label: PropTypes.string.isRequired,
+  /**
+   * Optional click handler
+   */
+  onClick: PropTypes.func,
+};
+
+Button.defaultProps = {
+  backgroundColor: null,
+  primary: false,
+  size: 'medium',
+  onClick: undefined,
+};
