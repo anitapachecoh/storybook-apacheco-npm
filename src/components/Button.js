@@ -6,7 +6,7 @@ export interface ButtonProps {
 
 export const Button = styled.button<ButtonProps>`
   /* Adapt the colors based on primary prop */
-  background: ${props => props.primary ? "palevioletred" : "white"};
+  background: ${props => props.primary ? "palevioletred" : "green"};
   color: ${props => props.primary ? "white" : "palevioletred"};
 
   font-size: 1em;
