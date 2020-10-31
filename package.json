@@ -1,7 +1,7 @@
 {
   "name": "storybook-apacheco-npm",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.5",
     "@testing-library/react": "^11.1.0",
@@ -56,9 +56,6 @@
     "react-is": "^17.0.1",
     "semantic-release": "^17.2.2"
   },
-  "branches": [
-    {"name": "main", "prerelease": true}
-  ],
   "plugins": [
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
@@ -66,5 +63,9 @@
     "@semantic-release/github",
     "@semantic-release/npm",
     "@semantic-release/git"
-  ]
+  ],
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js"
 }
